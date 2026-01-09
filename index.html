@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Mehran's Ecommerce POS</title>
+  <link rel="stylesheet" href="assets/css/pos.css">
+</head>
+<body>
+
+<div class="pos-dashboard">
+
+  <!-- ---------- SIDEBAR ---------- -->
+  <aside class="sidebar">
+    <a href="admin.html" class="admin-link">⚙ Admin Panel</a>
+    <a href="sales.html" class="admin-link">🧾 Sales History</a>
+
+    <div class="logo">🛒 Mehran POS</div>
+    <h4>Categories</h4>
+    <ul id="categoryList">
+      <li data-category="all" class="active">All</li>
+    </ul>
+  </aside>
+
+  <!-- ---------- MAIN CONTENT ---------- -->
+  <main class="main-content">
+    <!-- Search / Barcode -->
+    <div class="search-bar">
+      <input type="text" id="searchInput" placeholder="Search by name or barcode..." autofocus>
+    </div>
+
+    <!-- Products Grid -->
+    <section id="productGrid" class="product-grid"></section>
+  </main>
+
+  <!-- ---------- CART PANEL ---------- -->
+  <aside class="cart-panel">
+    <h3>Cart</h3>
+    <div id="cartItems"></div>
+    <div class="cart-totals">
+      <span>Subtotal: Rs. <strong id="subtotal">0</strong></span>
+      <span>Tax (5%): Rs. <strong id="tax">0</strong></span>
+      <span>Total: Rs. <strong id="total">0</strong></span>
+    </div>
+    <button class="pay-btn" onclick="completeSale()">Complete Sale</button>
+  </aside>
+
+</div>
+
+<script src="assets/js/storage.js"></script>
+<script src="assets/js/products.js"></script> <!-- MUST be before pos.js -->
+<script src="https://cdn.jsdelivr.net/npm/qrcode/build/qrcode.min.js"></script>
+<script src="assets/js/pos.js"></script>
+<!-- ========= RECEIPT TEMPLATE (HIDDEN) ========= -->
+
+<!-- ========= PROFESSIONAL RECEIPT ========= -->
+<div id="receipt" style="display:none;">
+  <div class="receipt">
+    <!-- HEADER -->
+    <div class="receipt-header">
+      <img src="assets/images/logo.png" class="receipt-logo">
+      <h2>Mehran's Ecommerce POS</h2>
+      <p class="tagline">Your trusted store since 2026</p>
+      <p class="contact">📞 +92 3120380415  | 📧 info@mehranpos.com</p>
+    </div>
+
+    <hr>
+
+    <!-- DATE / TIME -->
+    <div class="receipt-info">
+      <span>Date: <span id="r-date"></span></span>
+      <span>Time: <span id="r-time"></span></span>
+    </div>
+
+    <hr>
+
+    <!-- ITEMS TABLE -->
+    <div id="r-items" class="receipt-items"></div>
+
+    <hr>
+
+    <!-- TOTALS -->
+    <div class="receipt-totals">
+      <div>Subtotal: <span id="r-subtotal"></span></div>
+      <div>Tax (5%): <span id="r-tax"></span></div>
+      <div class="total">Total: <span id="r-total"></span></div>
+    </div>
+
+    <hr>
+
+    <!-- QR CODE -->
+    <canvas id="qrCode" class="qr-code"></canvas>
+
+    <!-- FOOTER -->
+    <p class="thank-you">Thank you for shopping!</p>
+    <p class="footer">Visit: www.mehranpos.com | Follow: @mehranpos</p>
+  </div>
+</div>
+
+
+</body>
+</html>
