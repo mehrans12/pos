@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Admin – Product Management</title>
+  <link rel="stylesheet" href="assets/css/admin.css">
+</head>
+<body>
+
+<div class="admin-container">
+  <h2>🧑‍💼 Product Management</h2>
+
+  <!-- ADD / EDIT FORM -->
+  <form id="productForm">
+    <input type="hidden" id="productId">
+
+    <input type="text" id="name" placeholder="Product Name" required>
+    <input type="number" id="price" placeholder="Price" required>
+    <input type="text" id="barcode" placeholder="Barcode" required>
+    <input type="text" id="category" placeholder="Category" required>
+    <input type="text" id="image" placeholder="Image URL or path">
+
+    <button type="submit">Save Product</button>
+  </form>
+
+  <!-- PRODUCT LIST -->
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Price</th>
+        <th>Barcode</th>
+        <th>Category</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody id="productTable"></tbody>
+  </table>
+
+  <a href="index.html" class="back-btn">← Back to POS</a>
+</div>
+
+<script src="assets/js/storage.js"></script>
+<script src="assets/js/admin.js"></script>
+</body>
+</html>
