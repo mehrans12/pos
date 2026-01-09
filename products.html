@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Product Management</title>
+  <link rel="stylesheet" href="assets/css/products.css">
+</head>
+<body>
+
+<h2>Product Management</h2>
+
+<div class="product-form">
+  <input type="text" id="name" placeholder="Product Name">
+  <input type="number" id="price" placeholder="Price">
+  <input type="text" id="barcode" placeholder="Barcode">
+  <button onclick="addProduct()">Add Product</button>
+</div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Price</th>
+      <th>Barcode</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody id="productTable"></tbody>
+</table>
+
+<script src="assets/js/storage.js"></script>
+<script src="assets/js/products.js"></script>
+</body>
+</html>
